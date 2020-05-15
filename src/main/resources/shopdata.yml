@@ -1,0 +1,13 @@
+1000-2130-1234:
+  #上架者
+  Player: Steve
+  #物品
+  Item: 'nbt'
+  #上架日期
+  Date: ''
+  #上架VIP等级（延长上架时间）
+  VipLevel: 0
+  #价格-单价
+  Price:
+    Money: 0
+    Point: 100

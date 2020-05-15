@@ -1,0 +1,133 @@
+#是否启用点券-需要PlayerPoint支持
+UsePoint: true
+Bank:
+  #银行利息 百分之
+  Accrual:
+    Money: 0.3
+    Point: 0.5
+Shop:
+  #一般用户上架天数
+  KeepDay: 7
+  #最多上架数量 - 防止刷商店界面
+  MaxSell: 3
+  #VipLevel 每个等级增加多少天
+  VipLevel:
+    1: 1
+    2: 3
+    3: 10
+  #手续费，Sell：上架所需手续费  Buy:购买所需手续费
+  Charge:
+    #金币
+    Money:
+      Sell: 5
+      Buy: 3
+    #点券
+    Point:
+      Sell: 3
+      Buy: 1
+  #屏蔽的关键字
+  Black:
+    Lore:
+      - '灵魂绑定'
+    Name:
+      - '傻逼'
+    Id:
+      - '166:3'
+Gui:
+  Menu:
+    Title: "&bGSN全球经济热潮"
+    Text: "&8选择你要进行的操作："
+    Open:
+      Text: "&b打开全球商店"
+      Image: "textures/items/apple_golden"
+    Mail:
+      Text: "&e打开邮箱"
+      Image: "textures/items/book_portfolio"
+    Bank:
+      Text: "&6打开银行"
+      Image: "textures/items/villagebell"
+    Sell:
+      Text: "&9出售商品"
+      Image: "textures/items/dried_kelp"
+    SendMail:
+      Text: "&6发送邮件"
+      Image: "textures/items/paper"
+  Bank:
+    Title: "&9GSN国际银行"
+    Text: "&b请选择您要进行的操作"
+    Deposit:
+      Text: "&6存钱"
+      Image: "textures/items/blaze_powder"
+    Withdraw:
+      Text: "&b取钱"
+      Image: "textures/items/quartz"
+    OperateMenu:
+      Deposit:
+        Title: "&bGSN国际银行-存钱"
+        Input:
+          Money: "&f请输入你要存入的金币:"
+          Point: "&f请输入你要存入的点券:"
+        Label:
+          Money: "&d您当前随身账户中有&a<money>&d！"
+          Point: "&d您当前随身账户中有&a<point>&d！"
+      Withdraw:
+        Title: "&bGSN国际银行-取钱"
+        Input:
+          Money: "&f请输入你要取出的金币:"
+          Point: "&f请输入你要取出的点券:"
+        Label:
+          Money: "&b您当前银行账户中有&a<money>&b元可取出！"
+          Point: "&b您当前银行账户中有&a<point>&b点券可取出！"
+  Shop:
+    Title: "&9GSN全球市场"
+    Text: "&b所有商品如下，点击可查看详情!"
+    ButtonText: "<item>\n&b点击了解详情"
+  Sell:
+    Title: "&bGSN寄售系统"
+    Text: "&b寄售会将物品寄存在服务器，随时可取出."
+    Label:
+      Name: "&b物品名: <item>"
+      Count: "&b总量: <count>"
+    Input:
+      Money: "&b请输入出售金币金额(单价):"
+      Point: "&d请输入出售点券金额(单价):"
+    Slider: "&9请确认数量："
+  Buy:
+    Title: "&dGSN商品详情页"
+    Desc:
+      - "&6上架者: <player>"
+      - "&3物品名: <item>"
+      - "<lore>"
+      - "&b单价: "
+      - "   &f-&a金币: <money>"
+      - "   &f-&d点券: <point>"
+      - "&c剩余库存: <count>"
+      - "&d下架剩余时间: <time> 天"
+    Button:
+      Text: "&b点击购买"
+      Image: "textures/items/quiver"
+    Sure:
+      Title: "&4确认您的购买"
+      Slider: "&6选择你要购买的数量:"
+  Mail:
+    Title: "&6GSN邮件系统"
+    Text: "&8请选择要查看的邮件:"
+    Image: "textures/items/book_writable"
+    Send:
+      Title: "&5发送邮件"
+      Input: "&d请输入您的寄语:"
+      SendItem: "&6发送手上物品"
+      Count: "&b确认数量"
+      Receiver: "&9发送给:"
+    Info:
+      Title: "&6内容"
+      Desc:
+        - "§a发件人: §e<sender>"
+        - "§a发件日期: §e<date>"
+        - "§a寄语:"
+        - "<msg>"
+        - "§a包含物品: "
+        - "<item>"
+      Button:
+        Text: "&6已读(领取物品)"
+        Image: "textures/items/nether_star"

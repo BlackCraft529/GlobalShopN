@@ -1,0 +1,18 @@
+name: GlobalShopN
+main: com.bc.globalshopN.gsn
+version: "0.0.24"
+author: bcN
+api: ["1.0.0"]
+description: "全球市场插件 GlobalShopN"
+depend:
+  - EconomyAPI
+commands:
+  gsn:
+    aliases: []
+    description: From GlobalShopN
+    usage: "/gsn help"
+permissions:
+  gsn.use:
+    default: true
+  gsn.admin:
+    default: op

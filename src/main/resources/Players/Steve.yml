@@ -1,0 +1,16 @@
+VipLevel: 0
+Bank:
+  Money: 0
+  Point: 0
+  AccrualDate: 1
+Mail:
+  Items:
+    - 'nbt'
+Sell:
+  Count: 0
+  Moeny: 0
+  Point: 0
+Buy:
+  Count: 0
+  Money: 0
+  Point: 0

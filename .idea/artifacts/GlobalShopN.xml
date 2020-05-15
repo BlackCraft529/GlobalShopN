@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GlobalShopN">
+    <output-path>G:/Minecrafts/服务端Server/NUKKIT/plugins</output-path>
+    <root id="archive" name="GlobalShopN.jar">
+      <element id="module-output" name="GlobalShopN" />
+    </root>
+  </artifact>
+</component>

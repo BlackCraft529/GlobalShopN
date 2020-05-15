@@ -1,0 +1,35 @@
+Title: "&9[&e&l全球经济&9]"
+Error:
+  Sell: "&9您输入的售卖价格有误！"
+  Charge: "&9您没有足够的钱/金币来缴纳税务!"
+  Withdraw: "&9您输入的取出金额有误..."
+  Deposit: "&9您输入的存入金额有误..."
+  NotEnough: "&9金额不足..."
+  GoodNotExists: "&4商品不存在，或者卖完了哦..."
+  GoodNotEnough: "&9商品不足，请重新打开界面~"
+  IsBlack: "&6物品的ID、名字或描述存在异常字符，不允许上架！"
+  IsMaxSell: "&4您上架的货物已经够多了，请不要再上架了~"
+  IsAir: "&4手中物品为空..."
+  MailNotExists: "&b邮件不存在..."
+  PlayerNotExists: "&4玩家不存在..."
+  ItemNotEnough: "&4物品不足..."
+Notice:
+  Charge: "&a扣除手续费<charge>!"
+  SellSucc: "&b上架成功!"
+  Withdraw:
+    Money: "&6成功取出<money>金币！"
+    Point: "&b成功取出<point>点券！"
+  Deposit:
+    Money: "&9成功存入<money>金币！"
+    Point: "&b成功存入<point>点券！"
+  Buy:
+    Succ: "&6恭喜你购买完成!"
+  Bank:
+    Accrual:
+      Money: "&6今日利息: <money>"
+      Point: "&c今日利息: <point>"
+  Mail:
+    Get: "&6领取完成..."
+    Back: "&4物品到期，已经强制下架，请查收!"
+    Send: "&6发送成功！"
+    Has: "&b您的邮箱中有<count>封未读邮件，请注意查收！"
