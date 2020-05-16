@@ -1,17 +1,17 @@
-package com.bc.globalshopN;
+package com.bc;
 
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
+import com.bc.Utils.load.*;
+import com.bc.bankN.listener.BankListener;
 import com.bc.globalshopN.clock.WatchDog;
 import com.bc.globalshopN.listener.*;
-import com.bc.globalshopN.load.LoadCfg;
-import com.bc.globalshopN.load.LoadData;
-import com.bc.globalshopN.load.LoadHelp;
-import com.bc.globalshopN.load.LoadLang;
 import com.bc.globalshopN.math.MenuWindowMath;
+import com.bc.mailsN.listener.MailListener;
+import com.bc.mailsN.math.MailWindowMath;
 
 /**
  * @author Luckily_Baby
@@ -19,7 +19,7 @@ import com.bc.globalshopN.math.MenuWindowMath;
  */
 public class gsn extends PluginBase {
     private static gsn plugin;
-    public static String ver="0.0.24";
+    public static String ver="0.1.26";
     public static gsn getPlugin(){return plugin;}
 
     /**
@@ -43,7 +43,8 @@ public class gsn extends PluginBase {
         this.getLogger().info(TextFormat.YELLOW + "[GlobalShopN]:");
         this.getLogger().info(TextFormat.GREEN + "尝试加载全球插件!");
         //加载监听器
-        this.getServer().getPluginManager().registerEvents(new PlayerListener(),this);
+        this.getServer().getPluginManager().registerEvents(new com.bc.globalshopN.listener.PlayerListener(),this);
+        this.getServer().getPluginManager().registerEvents(new com.bc.mailsN.listener.PlayerListener(),this);
         this.getServer().getPluginManager().registerEvents(new MenuListener(),this);
         this.getServer().getPluginManager().registerEvents(new BankListener(),this);
         this.getServer().getPluginManager().registerEvents(new SellListener(),this);
@@ -55,6 +56,7 @@ public class gsn extends PluginBase {
         LoadCfg.loadCfg();
         LoadLang.loadLang();
         LoadData.loadData();
+        LoadMails.loadMails();
 
         //启动线程
         WatchDog.onWatch();
@@ -87,6 +89,16 @@ public class gsn extends PluginBase {
         }
         //open sell mail
         if(args.length==1){
+            //管理员全局邮箱
+            if(args[0].equalsIgnoreCase("adminMail")&&sender.hasPermission("gsn.adminMail")){
+                if(sender instanceof Player){
+                    ((Player)sender).showFormWindow(MailWindowMath.getGlobalSendMailWindow((Player)sender));
+                    return true;
+                }else {
+                    sender.sendMessage("控制台禁止使用该指令...");
+                    return true;
+                }
+            }
             //开启主页面
             if(args[0].equalsIgnoreCase("open")&&sender.hasPermission("gsn.use")){
                 if(sender instanceof Player){
@@ -103,6 +115,7 @@ public class gsn extends PluginBase {
                 LoadCfg.loadCfg();
                 LoadLang.loadLang();
                 LoadData.loadData();
+                LoadMails.loadMails();
                 sender.sendMessage(LoadLang.title+"§a重载完成！");
                 return true;
             }

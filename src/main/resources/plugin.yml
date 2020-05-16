@@ -1,6 +1,6 @@
 name: GlobalShopN
-main: com.bc.globalshopN.gsn
-version: "0.0.24"
+main: com.bc.gsn
+version: "0.1.26"
 author: bcN
 api: ["1.0.0"]
 description: "全球市场插件 GlobalShopN"
@@ -15,4 +15,6 @@ permissions:
   gsn.use:
     default: true
   gsn.admin:
+    default: op
+  gsn.adminMail:
     default: op

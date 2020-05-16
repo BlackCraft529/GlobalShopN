@@ -6,10 +6,10 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerJoinEvent;
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
-import com.bc.globalshopN.Utils.PlayerFile;
-import com.bc.globalshopN.gsn;
-import com.bc.globalshopN.load.LoadCfg;
-import com.bc.globalshopN.load.LoadLang;
+import com.bc.Utils.PlayerFile;
+import com.bc.gsn;
+import com.bc.Utils.load.LoadCfg;
+import com.bc.Utils.load.LoadLang;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -23,30 +23,7 @@ import java.util.Date;
 public class PlayerListener implements Listener {
     public SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static DecimalFormat dfs = new DecimalFormat("#.00");
-    @EventHandler
-    public void onPlayerJoins(PlayerJoinEvent e){
-        Player p = e.getPlayer();
-        File pf=new File(gsn.getPlugin().getDataFolder()+File.separator+"Players"+File.separator+"Mail",p.getName()+".yml");
-        if(!pf.exists()) {
-            File fileParents = pf.getParentFile();
-            //新建文件夹
-            if (!fileParents.exists()) {
-                fileParents.mkdirs();
-            }
-            try {
-                pf.createNewFile();
-            } catch (IOException es) {
-                es.printStackTrace();
-                gsn.getPlugin().getLogger().info(TextFormat.RED + "[GlobalShopN] 插件内部错误: ERROR-301");
-            }
-        }else{
-            Config pfi=new Config(pf,Config.YAML);
-            int count=pfi.getKeys(false).size();
-            if(count>0){
-                p.sendMessage(LoadLang.title+LoadLang.mailHas.replaceAll("<count>",count+""));
-            }
-        }
-    }
+
     /**
      * 为新玩家创建数据文件&发放日常利息
      * @param e 玩家登录

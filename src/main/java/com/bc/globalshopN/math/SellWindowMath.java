@@ -6,7 +6,7 @@ import cn.nukkit.form.element.ElementLabel;
 import cn.nukkit.form.element.ElementSlider;
 import cn.nukkit.form.window.FormWindowCustom;
 import cn.nukkit.item.Item;
-import com.bc.globalshopN.load.LoadCfg;
+import com.bc.Utils.load.LoadCfg;
 
 /**
  * @author Luckily_Baby

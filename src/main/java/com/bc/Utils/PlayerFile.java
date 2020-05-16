@@ -1,8 +1,8 @@
-package com.bc.globalshopN.Utils;
+package com.bc.Utils;
 
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
-import com.bc.globalshopN.gsn;
+import com.bc.gsn;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;

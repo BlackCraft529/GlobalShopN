@@ -1,11 +1,11 @@
-package com.bc.globalshopN.math;
+package com.bc.bankN.math;
 
 import cn.nukkit.Player;
 import cn.nukkit.form.element.ElementInput;
 import cn.nukkit.form.element.ElementLabel;
 import cn.nukkit.form.window.FormWindowCustom;
-import com.bc.globalshopN.Utils.PlayerFile;
-import com.bc.globalshopN.load.LoadCfg;
+import com.bc.Utils.PlayerFile;
+import com.bc.Utils.load.LoadCfg;
 import me.onebone.economyapi.EconomyAPI;
 import net.player.api.Point;
 import java.text.DecimalFormat;

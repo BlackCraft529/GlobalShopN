@@ -8,9 +8,9 @@ import cn.nukkit.form.response.FormResponseSimple;
 import cn.nukkit.form.window.FormWindow;
 import cn.nukkit.form.window.FormWindowSimple;
 import cn.nukkit.item.Item;
-import com.bc.globalshopN.load.LoadCfg;
-import com.bc.globalshopN.load.LoadLang;
-import com.bc.globalshopN.math.MailWindowMath;
+import com.bc.Utils.load.LoadCfg;
+import com.bc.Utils.load.LoadLang;
+import com.bc.mailsN.math.MailWindowMath;
 import com.bc.globalshopN.math.MenuWindowMath;
 import com.bc.globalshopN.math.SellWindowMath;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
@@ -52,29 +52,19 @@ public class MenuListener implements Listener {
                     ps.showFormWindow(MenuWindowMath.getShopMenu());
                 }
             });
-            return;
-        //打开邮箱 ↓
+            //打开邮箱 ↓
         }else if(((FormResponseSimple)e.getResponse()).getClickedButton().getText().equalsIgnoreCase(LoadCfg.menuBtMail)){
-            final Player ps=p;
-            sigleThreadPool.execute(new Runnable() {
-                @Override
-                public void run() {
-                    ps.showFormWindow(MailWindowMath.getMailMenu(ps));
-                }
-            });
-            return;
-        //打开出售 ↓
+            p.showFormWindow(MailWindowMath.getMailMenu());
+            //打开出售 ↓
         }else if(((FormResponseSimple)e.getResponse()).getClickedButton().getText().equalsIgnoreCase(LoadCfg.menuBtSell)){
             if(p.getInventory().getItemInHand().equals(new Item(0))){
                 p.sendMessage(LoadLang.title+LoadLang.errorIsAir);
                 return;
             }
             p.showFormWindow(SellWindowMath.getSellWindow(p));
-            return;
-        //打开发送邮件界面 ↓
+            //打开发送邮件界面 ↓
         }else if(((FormResponseSimple)e.getResponse()).getClickedButton().getText().equalsIgnoreCase(LoadCfg.menuBtSendMail)){
             p.showFormWindow(MailWindowMath.getSendMailMenu(p));
-            return;
         }
     }
 }

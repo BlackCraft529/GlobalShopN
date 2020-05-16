@@ -1,7 +1,7 @@
-package com.bc.globalshopN.Utils;
+package com.bc.Utils;
 
-import com.bc.globalshopN.load.LoadCfg;
-import com.bc.globalshopN.load.LoadData;
+import com.bc.Utils.load.LoadCfg;
+import com.bc.Utils.load.LoadData;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

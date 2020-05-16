@@ -3,11 +3,11 @@ package com.bc.globalshopN.math;
 import cn.nukkit.form.element.ElementButton;
 import cn.nukkit.form.window.FormWindowSimple;
 import cn.nukkit.item.Item;
-import com.bc.globalshopN.Utils.Image;
-import com.bc.globalshopN.Utils.ItemIDSunName;
-import com.bc.globalshopN.Utils.ItemNBT;
-import com.bc.globalshopN.load.LoadCfg;
-import com.bc.globalshopN.load.LoadData;
+import com.bc.Utils.Image;
+import com.bc.Utils.ItemIDSunName;
+import com.bc.Utils.ItemNBT;
+import com.bc.Utils.load.LoadCfg;
+import com.bc.Utils.load.LoadData;
 
 /**
  * @author Luckily_Baby

@@ -1,4 +1,4 @@
-package com.bc.globalshopN.load;
+package com.bc.Utils.load;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,7 @@ public class LoadHelp {
         help.add("§a1./gsn open  §9打开主页面");
         if(isOp){
             help.add("§b/gsn reload  §8重载插件");
+            help.add("§b/gsn adminMail  §8打开全局邮箱发送界面");
         }
         return help;
     }

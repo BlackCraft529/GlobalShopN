@@ -5,6 +5,10 @@ Bank:
   Accrual:
     Money: 0.3
     Point: 0.5
+Mails:
+  AutoLook: "&9[&4必读&9]"
+  #等待多少秒后弹出界面，建议不要少于10秒
+  Wait: 15
 Shop:
   #一般用户上架天数
   KeepDay: 7
@@ -109,8 +113,20 @@ Gui:
     Sure:
       Title: "&4确认您的购买"
       Slider: "&6选择你要购买的数量:"
+  GlobalMail:
+    Title: "&6GSN邮箱菜单"
+    Text: ""
+    Personal:
+      Text: "&b查看个人邮箱"
+      Image: "textures/items/book_writable"
+    Global:
+      Text: "&6查看系统邮箱"
+      Image: "textures/items/book_writable"
+    Mails:
+      Title: "§6GSN全局邮件系统"
+      Image: "textures/items/book_writable"
   Mail:
-    Title: "&6GSN邮件系统"
+    Title: "&6GSN个人邮件系统"
     Text: "&8请选择要查看的邮件:"
     Image: "textures/items/book_writable"
     Send:

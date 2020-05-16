@@ -1,8 +1,8 @@
-package com.bc.globalshopN.load;
+package com.bc.Utils.load;
 
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
-import com.bc.globalshopN.gsn;
+import com.bc.gsn;
 import java.io.File;
 
 /**
@@ -10,8 +10,11 @@ import java.io.File;
  * @date 2020/5/5 15:32
  */
 public class LoadCfg {
+    public static final String mailGlobalInfoTitle="§4系统邮件详情",mailGlobalInfoBt="§a已阅§9(§b领取§9)",mailGlobalSendMenuTitle="§6管理员: 全局邮件发送";
+
     public static Config cfg;
     public static Boolean usePoint=true;
+    public static String mailsAutoLook="";
     public static String menuTitle="",menuText="",menuBtOpen="",menuBtMail="",menuBtBank="",menuBtSell="",menuBtSendMail ="";
     public static String bankTitle="",bankText="",bankBtDeposit="", bankBtWithdraw ="",bankOpDeposit="",bankOpWithdraw="", bankDsIpMoney ="", bankDsIpPoint ="",
                     bankDsLbMoney="",bankDsLbPoint="",bankWdIpMoney="",bankWdIpPoint="",bankWdLbMoney="",bankWdLbPoint="";
@@ -19,8 +22,9 @@ public class LoadCfg {
     public static String buyTitle="",buySlider="",buyBtText="",buySureTitle="";
     public static String sellTitle="",sellText="",sellLbItemName="",sellLbItemCount="",sellIpMoney="",sellIpPoint="",sellSlider="";
     public static String mailTitle="",mailText="",mailInfoTitle="",mailInfoBtGet="",mailSendTitle="",mailSendMsg="",mailSendItem="",mailSendCount="",mailSendReceiver="";
+    public static String globalMailTitle="",globalMailText="",globalMailBtPersonalText="",globalMailBtGlobalText="",globalMailListMenuTitle="";
     public static float chargeSellMoney=0f,chargeSellPoint=0f,chargeBuyMoney=0f,chargeBuyPoint=0f,aBankMoney=0f,aBankPoint=0f;
-    public static int keepDay=7,maxSell=3;
+    public static int keepDay=7,maxSell=3,mailAutoLookTick=15000;
     public static void loadCfg(){
         if(!new File(gsn.getPlugin().getDataFolder(), "config.yml").exists()) {
             gsn.getPlugin().getLogger().info(TextFormat.BLUE+"未找到config.yml，正在创建...");
@@ -40,6 +44,9 @@ public class LoadCfg {
         maxSell=cfg.getInt("Shop.MaxSell");
         aBankMoney=(float) cfg.getDouble("Bank.Accrual.Money");
         aBankPoint=(float) cfg.getDouble("Bank.Accrual.Point");
+
+        mailsAutoLook=cfg.getString("Mails.AutoLook").replaceAll("&","§");
+        mailAutoLookTick=cfg.getInt("Mail.Wait")*1000;
 
         menuTitle=cfg.getString("Gui.Menu.Title").replaceAll("&","§");
         menuText=cfg.getString("Gui.Menu.Text").replaceAll("&","§");
@@ -95,6 +102,12 @@ public class LoadCfg {
         mailSendItem=cfg.getString("Gui.Mail.Send.SendItem").replaceAll("&","§");
         mailSendCount=cfg.getString("Gui.Mail.Send.Count").replaceAll("&","§");
         mailSendReceiver=cfg.getString("Gui.Mail.Send.Receiver").replaceAll("&","§");
+
+        globalMailTitle=cfg.getString("Gui.GlobalMail.Title").replaceAll("&","§");
+        globalMailText=cfg.getString("Gui.GlobalMail.Text").replaceAll("&","§");
+        globalMailBtPersonalText=cfg.getString("Gui.GlobalMail.Personal.Text").replaceAll("&","§");
+        globalMailBtGlobalText=cfg.getString("Gui.GlobalMail.Global.Text").replaceAll("&","§");
+        globalMailListMenuTitle=cfg.getString("Gui.GlobalMail.Mails.Title").replaceAll("&","§");
 
         menuBtSendMail =cfg.getString("Gui.Menu.SendMail.Text").replaceAll("&","§");
     }

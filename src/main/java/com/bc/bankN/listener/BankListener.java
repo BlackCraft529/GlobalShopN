@@ -1,4 +1,4 @@
-package com.bc.globalshopN.listener;
+package com.bc.bankN.listener;
 
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
@@ -8,10 +8,10 @@ import cn.nukkit.form.response.FormResponseSimple;
 import cn.nukkit.form.window.FormWindow;
 import cn.nukkit.form.window.FormWindowCustom;
 import cn.nukkit.form.window.FormWindowSimple;
-import com.bc.globalshopN.Utils.PlayerFile;
-import com.bc.globalshopN.load.LoadCfg;
-import com.bc.globalshopN.load.LoadLang;
-import com.bc.globalshopN.math.BankWindowMath;
+import com.bc.Utils.PlayerFile;
+import com.bc.Utils.load.LoadCfg;
+import com.bc.Utils.load.LoadLang;
+import com.bc.bankN.math.BankWindowMath;
 import me.onebone.economyapi.EconomyAPI;
 import net.player.api.Point;
 

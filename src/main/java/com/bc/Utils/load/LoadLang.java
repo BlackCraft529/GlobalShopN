@@ -1,8 +1,8 @@
-package com.bc.globalshopN.load;
+package com.bc.Utils.load;
 
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
-import com.bc.globalshopN.gsn;
+import com.bc.gsn;
 
 import java.io.File;
 

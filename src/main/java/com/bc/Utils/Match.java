@@ -1,9 +1,9 @@
-package com.bc.globalshopN.Utils;
+package com.bc.Utils;
 
 import cn.nukkit.Player;
 import cn.nukkit.item.Item;
-import com.bc.globalshopN.load.LoadCfg;
-import com.bc.globalshopN.load.LoadData;
+import com.bc.Utils.load.LoadCfg;
+import com.bc.Utils.load.LoadData;
 import java.util.List;
 
 /**

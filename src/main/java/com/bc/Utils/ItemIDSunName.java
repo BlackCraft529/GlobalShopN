@@ -1,4 +1,4 @@
-package com.bc.globalshopN.Utils;
+package com.bc.Utils;
 
 import cn.nukkit.item.Item;
 
