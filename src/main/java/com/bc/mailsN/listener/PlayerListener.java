@@ -15,6 +15,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -44,7 +45,7 @@ public class PlayerListener implements Listener {
             try {
                 pf.createNewFile();
                 Config pfs=new Config(pf,Config.YAML);
-                pfs.set("Global","newPlayer");
+                pfs.set("Global",new ArrayList<String>());
                 pfs.save();
             } catch (IOException es) {
                 es.printStackTrace();
@@ -52,6 +53,10 @@ public class PlayerListener implements Listener {
             }
         }else{
             Config pfi=new Config(pf,Config.YAML);
+            if("newPlayer".equals(pfi.get("Global"))){
+                pfi.set("Global",new ArrayList<String>());
+                pfi.save();
+            }
             int mailCount=pfi.getKeys(false).size();
             int globalCount=LoadMails.globalMails.getKeys(false).size()-pfi.getStringList("Global").size();
             int count=(mailCount-1)+globalCount;

@@ -35,9 +35,6 @@ public class WatchDog {
                         if(LoadData.shopData.get(key)!=null){
                             try {
                                 if(Time.getSurplusDay(key)<=0){
-                                    if(ItemNBT.getItemByKey(key+".Item")==null){
-                                        continue;
-                                    }
                                     Item item= ItemNBT.getItemByKey(key+".Item");
                                     Player p=gsn.getPlugin().getServer().getPlayer(LoadData.shopData.getString(key+".Player"));
                                     LoadData.shopData.remove(key);
