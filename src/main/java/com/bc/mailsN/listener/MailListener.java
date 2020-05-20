@@ -24,6 +24,7 @@ import net.player.api.Point;
 import java.awt.*;
 import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Luckily_Baby
@@ -198,6 +199,10 @@ public class MailListener implements Listener {
         if(item!=null){
             p.getInventory().addItem(item);
         }
+        if(LoadMails.globalMails.get(key+".Cmd")!=null&& !Objects.equals(LoadMails.globalMails.getString(key + ".Cmd"), "")){
+            String cmd=LoadMails.globalMails.getString(key+".Cmd").replaceAll("<player>",p.getName());
+            gsn.getPlugin().getServer().dispatchCommand(gsn.getPlugin().getServer().getConsoleSender(),cmd);
+        }
         p.sendMessage(LoadLang.title+"§a已领取 §e金币:"+money+" §b点券:"+point);
         List<String> globalMails=pf.getStringList("Global");
         globalMails.add(key);
@@ -258,8 +263,12 @@ public class MailListener implements Listener {
             if(LoadCfg.usePoint){
                 point=Double.parseDouble(window.getResponse().getInputResponse(5));
             }
+            String cmd="";
+            if(window.getResponse().getInputResponse(6)!=null){
+                cmd=window.getResponse().getInputResponse(6);
+            }
             item.setCount(count);
-            if(MailMath.sendGlobalMail(p,item,msg,isAutoLook,money,point)){
+            if(MailMath.sendGlobalMail(p,item,msg,isAutoLook,money,point,cmd)){
                 p.sendMessage(LoadLang.title+LoadLang.mailSend);
             }else{
                 p.sendMessage(LoadLang.title+"§4插件内部错误: 501");

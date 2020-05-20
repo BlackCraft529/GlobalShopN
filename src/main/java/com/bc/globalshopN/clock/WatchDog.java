@@ -4,6 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.item.Item;
 import com.bc.Utils.ItemNBT;
 import com.bc.Utils.Time;
+import com.bc.Utils.load.LoadCfg;
 import com.bc.gsn;
 import com.bc.Utils.load.LoadData;
 import com.bc.Utils.load.LoadLang;
@@ -35,11 +36,11 @@ public class WatchDog {
                         if(LoadData.shopData.get(key)!=null){
                             try {
                                 if(Time.getSurplusDay(key)<=0){
-                                    Item item= ItemNBT.getItemByKey(key+".Item");
-                                    Player p=gsn.getPlugin().getServer().getPlayer(LoadData.shopData.getString(key+".Player"));
+                                    Item item= ItemNBT.getItemByNbtString(LoadData.shopData.getString(key+".Item"));
+                                    String receiver=LoadData.shopData.getString(key+".Player");
                                     LoadData.shopData.remove(key);
                                     LoadData.shopData.save();
-                                    MailMath.sendMail(gsn.getPlugin().getServer().getConsoleSender(),p,item, LoadLang.mailBack);
+                                    MailMath.sendMail(gsn.getPlugin().getServer().getConsoleSender(),receiver,item, LoadLang.mailBack);
                                 }
                             } catch (ParseException e) {
                                 e.printStackTrace();
@@ -47,7 +48,7 @@ public class WatchDog {
                         }
                     }
                     //半小时判断一次
-                    Thread.sleep(1800000);
+                    Thread.sleep(LoadCfg.watchDog);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

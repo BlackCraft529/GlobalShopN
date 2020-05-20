@@ -182,6 +182,7 @@ public class MailWindowMath {
         ElementToggle autoLook=new ElementToggle("§b是否必读");
         ElementInput moneyInput=new ElementInput("§a金币");
         ElementInput pointInput=new ElementInput("§b点券");
+        ElementInput cmdInput=new ElementInput("§6指令 玩家变量:<player>");
 
         wd.addElement(msgInput);
         wd.addElement(sendItem);
@@ -189,6 +190,7 @@ public class MailWindowMath {
         wd.addElement(itemCount);
         wd.addElement(moneyInput);
         wd.addElement(pointInput);
+        wd.addElement(cmdInput);
 
         return wd;
     }

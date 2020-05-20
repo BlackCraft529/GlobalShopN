@@ -24,7 +24,7 @@ public class LoadCfg {
     public static String mailTitle="",mailText="",mailInfoTitle="",mailInfoBtGet="",mailSendTitle="",mailSendMsg="",mailSendItem="",mailSendCount="",mailSendReceiver="";
     public static String globalMailTitle="",globalMailText="",globalMailBtPersonalText="",globalMailBtGlobalText="",globalMailListMenuTitle="";
     public static float chargeSellMoney=0f,chargeSellPoint=0f,chargeBuyMoney=0f,chargeBuyPoint=0f,aBankMoney=0f,aBankPoint=0f;
-    public static int keepDay=7,maxSell=3,mailAutoLookTick=15000;
+    public static int keepDay=7,maxSell=3,mailAutoLookTick=15000,watchDog=15*1000*60;
     public static void loadCfg(){
         if(!new File(gsn.getPlugin().getDataFolder(), "config.yml").exists()) {
             gsn.getPlugin().getLogger().info(TextFormat.BLUE+"未找到config.yml，正在创建...");
@@ -42,6 +42,9 @@ public class LoadCfg {
         usePoint=cfg.getBoolean("UsePoint");
         keepDay=cfg.getInt("Shop.KeepDay");
         maxSell=cfg.getInt("Shop.MaxSell");
+        if(cfg.get("WatchDog")!=null) {
+            watchDog = cfg.getInt("WatchDog") * 60 * 1000;
+        }
         aBankMoney=(float) cfg.getDouble("Bank.Accrual.Money");
         aBankPoint=(float) cfg.getDouble("Bank.Accrual.Point");
 

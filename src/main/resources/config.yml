@@ -1,5 +1,6 @@
 #是否启用点券-需要PlayerPoint支持
 UsePoint: true
+WatchDog: 15
 Bank:
   #银行利息 百分之
   Accrual:

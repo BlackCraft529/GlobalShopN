@@ -55,9 +55,11 @@ public class MailMath {
      * @param msg 寄语
      * @return 是否成功
      */
-    public static boolean sendMail(CommandSender sender, Player receiver, Item item, String msg){
+    public static boolean sendMail(CommandSender sender, String receiver, Item item, String msg){
         String randomId= RandomId.getRandomMailId();
-        File pfi=new File(gsn.getPlugin().getDataFolder()+File.separator+"Players"+File.separator+"Mail",receiver.getName()+".yml");
+        System.out.println("Sender: "+sender.getName());
+        System.out.println("Receiver: "+receiver);
+        File pfi=new File(gsn.getPlugin().getDataFolder()+File.separator+"Players"+File.separator+"Mail",receiver+".yml");
         if(!pfi.exists()) {
             return false;
         }
@@ -85,7 +87,7 @@ public class MailMath {
      * @param autoLook 是否自动弹出
      * @return 是否成功发送
      */
-    public static boolean sendGlobalMail(Player sender,Item item,String msg,boolean autoLook,double money,double point){
+    public static boolean sendGlobalMail(Player sender,Item item,String msg,boolean autoLook,double money,double point,String cmd){
         String randomId= RandomId.getRandomMailId();
         while(LoadMails.globalMails.get(randomId)!=null){
             randomId= RandomId.getRandomMailId();
@@ -97,6 +99,7 @@ public class MailMath {
         LoadMails.globalMails.set(randomId+".Point",point);
         LoadMails.globalMails.set(randomId+".AutoLook",autoLook);
         LoadMails.globalMails.set(randomId+".Date",df.format(new Date()));
+        LoadMails.globalMails.set(randomId+".Cmd",cmd);
         LoadMails.globalMails.save();
         return true;
     }
