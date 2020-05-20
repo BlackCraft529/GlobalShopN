@@ -57,8 +57,6 @@ public class MailMath {
      */
     public static boolean sendMail(CommandSender sender, String receiver, Item item, String msg){
         String randomId= RandomId.getRandomMailId();
-        System.out.println("Sender: "+sender.getName());
-        System.out.println("Receiver: "+receiver);
         File pfi=new File(gsn.getPlugin().getDataFolder()+File.separator+"Players"+File.separator+"Mail",receiver+".yml");
         if(!pfi.exists()) {
             return false;

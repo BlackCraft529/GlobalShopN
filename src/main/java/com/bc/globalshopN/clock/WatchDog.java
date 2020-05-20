@@ -35,7 +35,7 @@ public class WatchDog {
                     for(String key : LoadData.shopData.getKeys(false)){
                         if(LoadData.shopData.get(key)!=null){
                             try {
-                                if(Time.getSurplusDay(key)<=0){
+                                if(Time.getSurplusDay(key)<0){
                                     Item item= ItemNBT.getItemByNbtString(LoadData.shopData.getString(key+".Item"));
                                     String receiver=LoadData.shopData.getString(key+".Player");
                                     LoadData.shopData.remove(key);
