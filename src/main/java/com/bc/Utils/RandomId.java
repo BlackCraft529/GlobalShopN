@@ -26,4 +26,15 @@ public class RandomId {
                 +Math.round((Math.random()+1) * 1000);
         return id;
     }
+
+    /**
+     * 获取随机的拍卖ID
+     * @return 随机拍卖ID
+     */
+    public static String getRandomAuctionId(){
+        String id="";
+        id+=Math.round((Math.random()+1) * 1000)+"*"
+                +Math.round((Math.random()+1) * 1000);
+        return id;
+    }
 }

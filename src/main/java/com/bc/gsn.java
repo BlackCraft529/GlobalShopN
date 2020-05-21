@@ -6,8 +6,8 @@ import cn.nukkit.command.CommandSender;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
 import com.bc.Utils.load.*;
+import com.bc.auctionN.listener.AuctionListener;
 import com.bc.bankN.listener.BankListener;
-import com.bc.globalshopN.clock.WatchDog;
 import com.bc.globalshopN.listener.*;
 import com.bc.globalshopN.math.MenuWindowMath;
 import com.bc.mailsN.listener.MailListener;
@@ -19,7 +19,7 @@ import com.bc.mailsN.math.MailWindowMath;
  */
 public class gsn extends PluginBase {
     private static gsn plugin;
-    public static String ver="0.1.29";
+    public static String ver="0.2.31";
     public static gsn getPlugin(){return plugin;}
 
     /**
@@ -29,7 +29,8 @@ public class gsn extends PluginBase {
     public void onDisable() {
         this.getLogger().info(TextFormat.GREEN + "开始卸载全球商店[GlobalShopN]...");
 
-        WatchDog.sigleThreadPool.shutdown();
+        com.bc.globalshopN.clock.WatchDog.sigleThreadPool.shutdown();
+        com.bc.auctionN.clock.WatchDog.sigleThreadPool.shutdown();
         MenuListener.sigleThreadPool.shutdown();
         this.getLogger().info(TextFormat.GREEN+"线程池关闭...");
     }
@@ -45,6 +46,7 @@ public class gsn extends PluginBase {
         //加载监听器
         this.getServer().getPluginManager().registerEvents(new com.bc.globalshopN.listener.PlayerListener(),this);
         this.getServer().getPluginManager().registerEvents(new com.bc.mailsN.listener.PlayerListener(),this);
+        this.getServer().getPluginManager().registerEvents(new AuctionListener(),this);
         this.getServer().getPluginManager().registerEvents(new MenuListener(),this);
         this.getServer().getPluginManager().registerEvents(new BankListener(),this);
         this.getServer().getPluginManager().registerEvents(new SellListener(),this);
@@ -57,9 +59,11 @@ public class gsn extends PluginBase {
         LoadLang.loadLang();
         LoadData.loadData();
         LoadMails.loadMails();
+        LoadAuction.loadAuctionData();
 
         //启动线程
-        WatchDog.onWatch();
+        com.bc.globalshopN.clock.WatchDog.onWatch();
+        com.bc.auctionN.clock.WatchDog.onWatch();
         this.getLogger().info(TextFormat.GREEN+"检查线程已启动!");
         this.getLogger().info(TextFormat.GREEN+"Version: "+TextFormat.RED+ver);
         this.getLogger().info(TextFormat.GOLD+"欢迎使用N系列11:"+TextFormat.RED+"["+TextFormat.BLUE+"GlobalShopN"+TextFormat.RED+"]");
@@ -116,6 +120,7 @@ public class gsn extends PluginBase {
                 LoadLang.loadLang();
                 LoadData.loadData();
                 LoadMails.loadMails();
+                LoadAuction.loadAuctionData();
                 sender.sendMessage(LoadLang.title+"§a重载完成！");
                 return true;
             }

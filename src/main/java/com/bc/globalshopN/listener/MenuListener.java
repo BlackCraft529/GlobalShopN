@@ -10,6 +10,7 @@ import cn.nukkit.form.window.FormWindowSimple;
 import cn.nukkit.item.Item;
 import com.bc.Utils.load.LoadCfg;
 import com.bc.Utils.load.LoadLang;
+import com.bc.auctionN.math.AuctionWindowMath;
 import com.bc.mailsN.math.MailWindowMath;
 import com.bc.globalshopN.math.MenuWindowMath;
 import com.bc.globalshopN.math.SellWindowMath;
@@ -65,6 +66,9 @@ public class MenuListener implements Listener {
             //打开发送邮件界面 ↓
         }else if(((FormResponseSimple)e.getResponse()).getClickedButton().getText().equalsIgnoreCase(LoadCfg.menuBtSendMail)){
             p.showFormWindow(MailWindowMath.getSendMailMenu(p));
+            //打开拍卖系统↓
+        }else if(((FormResponseSimple)e.getResponse()).getClickedButton().getText().equalsIgnoreCase(LoadCfg.menuBtAuction)){
+            p.showFormWindow(AuctionWindowMath.getAuctionMenu());
         }
     }
 }

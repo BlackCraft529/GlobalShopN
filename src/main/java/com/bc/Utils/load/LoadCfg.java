@@ -10,12 +10,12 @@ import java.io.File;
  * @date 2020/5/5 15:32
  */
 public class LoadCfg {
-    public static final String mailGlobalInfoTitle="§4系统邮件详情",mailGlobalInfoBt="§a已阅§9(§b领取§9)",mailGlobalSendMenuTitle="§6管理员: 全局邮件发送";
+    public static final String mailGlobalInfoTitle="§4系统邮件详情",mailGlobalInfoBt="§a已阅§9(§b领取§9)",mailGlobalSendMenuTitle="§6管理员: 全局邮件发送",auctionBtGetAuction="§a叫价";
 
     public static Config cfg;
     public static Boolean usePoint=true;
     public static String mailsAutoLook="";
-    public static String menuTitle="",menuText="",menuBtOpen="",menuBtMail="",menuBtBank="",menuBtSell="",menuBtSendMail ="";
+    public static String menuTitle="",menuText="",menuBtOpen="",menuBtMail="",menuBtBank="",menuBtSell="",menuBtSendMail ="",menuBtAuction="";
     public static String bankTitle="",bankText="",bankBtDeposit="", bankBtWithdraw ="",bankOpDeposit="",bankOpWithdraw="", bankDsIpMoney ="", bankDsIpPoint ="",
                     bankDsLbMoney="",bankDsLbPoint="",bankWdIpMoney="",bankWdIpPoint="",bankWdLbMoney="",bankWdLbPoint="";
     public static String shopTitle="",shopText="",shopBtText="";
@@ -23,8 +23,9 @@ public class LoadCfg {
     public static String sellTitle="",sellText="",sellLbItemName="",sellLbItemCount="",sellIpMoney="",sellIpPoint="",sellSlider="";
     public static String mailTitle="",mailText="",mailInfoTitle="",mailInfoBtGet="",mailSendTitle="",mailSendMsg="",mailSendItem="",mailSendCount="",mailSendReceiver="";
     public static String globalMailTitle="",globalMailText="",globalMailBtPersonalText="",globalMailBtGlobalText="",globalMailListMenuTitle="";
+    public static String auctionTitle="",auctionText="",auctionBtShop="",auctionBtAuction="",auctionShopTitle="",auctionGoodsTitle="",auctionInfoTitle="",auctionAddPriceTitle="";
     public static float chargeSellMoney=0f,chargeSellPoint=0f,chargeBuyMoney=0f,chargeBuyPoint=0f,aBankMoney=0f,aBankPoint=0f;
-    public static int keepDay=7,maxSell=3,mailAutoLookTick=15000,watchDog=15*1000*60;
+    public static int keepDay=7,maxSell=3,mailAutoLookTick=15000,watchDog=15*1000*60,auctionKeepDay=1,auctionMax=3;
     public static void loadCfg(){
         if(!new File(gsn.getPlugin().getDataFolder(), "config.yml").exists()) {
             gsn.getPlugin().getLogger().info(TextFormat.BLUE+"未找到config.yml，正在创建...");
@@ -47,6 +48,8 @@ public class LoadCfg {
         }
         aBankMoney=(float) cfg.getDouble("Bank.Accrual.Money");
         aBankPoint=(float) cfg.getDouble("Bank.Accrual.Point");
+        auctionKeepDay=cfg.getInt("Auction.KeepDay");
+        auctionMax=cfg.getInt("Auction.Max");
 
         mailsAutoLook=cfg.getString("Mails.AutoLook").replaceAll("&","§");
         mailAutoLookTick=cfg.getInt("Mail.Wait")*1000;
@@ -65,6 +68,7 @@ public class LoadCfg {
         menuBtMail=cfg.getString("Gui.Menu.Mail.Text").replaceAll("&","§");
         menuBtBank=cfg.getString("Gui.Menu.Bank.Text").replaceAll("&","§");
         menuBtSell=cfg.getString("Gui.Menu.Sell.Text").replaceAll("&","§");
+        menuBtAuction=cfg.getString("Gui.Menu.Auction.Text").replaceAll("&","§");
 
         bankBtDeposit=cfg.getString("Gui.Bank.Deposit.Text").replaceAll("&","§");
         bankBtWithdraw =cfg.getString("Gui.Bank.Withdraw.Text").replaceAll("&","§");
@@ -111,6 +115,16 @@ public class LoadCfg {
         globalMailBtPersonalText=cfg.getString("Gui.GlobalMail.Personal.Text").replaceAll("&","§");
         globalMailBtGlobalText=cfg.getString("Gui.GlobalMail.Global.Text").replaceAll("&","§");
         globalMailListMenuTitle=cfg.getString("Gui.GlobalMail.Mails.Title").replaceAll("&","§");
+
+        auctionText=cfg.getString("Gui.Auction.Text").replaceAll("&","§");
+        auctionTitle=cfg.getString("Gui.Auction.Title").replaceAll("&","§");
+        auctionBtAuction=cfg.getString("Gui.Auction.Button.Auction.Text").replaceAll("&","§");
+        auctionBtShop=cfg.getString("Gui.Auction.Button.Shop.Text").replaceAll("&","§");
+        auctionShopTitle=cfg.getString("Gui.Auction.Shop.Title").replaceAll("&","§");
+        auctionGoodsTitle=cfg.getString("Gui.Auction.Auction.Title").replaceAll("&","§");
+        auctionInfoTitle=cfg.getString("Gui.Auction.Info.Title").replaceAll("&","§");
+        auctionAddPriceTitle=cfg.getString("Gui.Auction.AddPrice.Title").replaceAll("&","§");
+
 
         menuBtSendMail =cfg.getString("Gui.Menu.SendMail.Text").replaceAll("&","§");
     }

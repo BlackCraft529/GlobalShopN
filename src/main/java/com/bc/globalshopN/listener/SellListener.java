@@ -25,7 +25,7 @@ import java.util.Date;
  * @date 2020/5/5 18:22
  */
 public class SellListener implements Listener {
-    public SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static DecimalFormat dfs = new DecimalFormat("#.00");
     /**
      * 出售商品

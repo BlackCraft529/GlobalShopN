@@ -3,7 +3,6 @@ package com.bc.Utils.load;
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 import com.bc.gsn;
-
 import java.io.File;
 
 /**
@@ -18,6 +17,8 @@ public class LoadLang {
     public static String noticeCharge="",noticeSellSucc="",withdrawMoney="",withdrawPoint="",depositMoney="",depositPoint="",noticeBuySucc="";
     public static String bankAMoney="",bankAPoint="";
     public static String mailNotExists="",mailGetSucc="",mailBack="",mailSend="",mailHas="";
+    public static String errorAuctionAddPrice="", errorAuctionPrice ="",errorAuctionMax="";
+    public static String auctionAddPrice="",auctionBack="",auctionSucc="" ,auctionBcMsg="";
     public static void loadLang(){
         if(!new File(gsn.getPlugin().getDataFolder(), "lang.yml").exists()) {
             gsn.getPlugin().getLogger().info(TextFormat.BLUE+"未找到lang.yml，正在创建...");
@@ -63,5 +64,15 @@ public class LoadLang {
         mailBack=lang.getString("Notice.Mail.Back").replaceAll("&","§");
         mailSend=lang.getString("Notice.Mail.Send").replaceAll("&","§");
         mailHas=lang.getString("Notice.Mail.Has").replaceAll("&","§");
+
+        errorAuctionAddPrice=lang.getString("Error.Auction.AddPrice").replaceAll("&","§");
+        errorAuctionPrice =lang.getString("Error.Auction.Price").replaceAll("&","§");
+        errorAuctionMax=lang.getString("Error.Auction.Max").replaceAll("&","§");
+
+        auctionAddPrice=lang.getString("Notice.Auction.AddPrice").replaceAll("&","§");
+        auctionBack=lang.getString("Notice.Auction.Back").replaceAll("&","§");
+        auctionSucc=lang.getString("Notice.Auction.Succ").replaceAll("&","§");
+        auctionBcMsg=lang.getString("Notice.Auction.Bc").replaceAll("&","§");
+
     }
 }

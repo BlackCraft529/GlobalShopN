@@ -1,6 +1,10 @@
 #是否启用点券-需要PlayerPoint支持
 UsePoint: true
 WatchDog: 15
+Auction:
+  #拍卖持续时间，建议不要大于2天
+  KeepDay: 1
+  Max: 3
 Bank:
   #银行利息 百分之
   Accrual:
@@ -57,6 +61,9 @@ Gui:
     SendMail:
       Text: "&6发送邮件"
       Image: "textures/items/paper"
+    Auction:
+      Text: "§a拍卖系统"
+      Image: "textures/ui/permissions_member_star"
   Bank:
     Title: "&9GSN国际银行"
     Text: "&b请选择您要进行的操作"
@@ -148,3 +155,32 @@ Gui:
       Button:
         Text: "&6已读(领取物品)"
         Image: "textures/items/nether_star"
+  Auction:
+    Title: "§8拍卖行"
+    Text: "§4请选择操作："
+    Button:
+      Shop:
+        Text: "§a拍卖市场"
+        Image: "textures/ui/health_boost_effect"
+      Auction:
+        Text: "§b拍卖物品"
+        Image: "textures/ui/permissions_member_star"
+    Shop:
+      Title: "§9拍卖列表"
+    Auction:
+      Title: "§2拍卖你的商品"
+    Info:
+      Title: "§5拍品信息"
+      Desc:
+        - '§a拍卖信息:'
+        - '§4拍卖类型: §a<type>'
+        - '§e拍卖者: §6<seller>'
+        - '§b起拍价: §2<minPrice>'
+        - '§b最低加价: §2<addPrice>'
+        - '§c当前价格: &a<nowPrice>'
+        - '§9被拍次数: §d<count>'
+        - '§5最高叫价者: §a<auctionPlayer>'
+        - '§a拍卖品信息:'
+        - '<item>'
+    AddPrice:
+      Title: "§e竞拍商品"

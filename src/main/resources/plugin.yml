@@ -1,9 +1,9 @@
 name: GlobalShopN
 main: com.bc.gsn
-version: "0.1.29"
+version: "0.2.31"
 author: bcN
 api: ["1.0.0"]
-description: "全球市场插件 GlobalShopN"
+description: "全球经济插件 GlobalShopN"
 depend:
   - EconomyAPI
 commands:

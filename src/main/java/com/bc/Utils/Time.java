@@ -1,5 +1,6 @@
 package com.bc.Utils;
 
+import com.bc.Utils.load.LoadAuction;
 import com.bc.Utils.load.LoadCfg;
 import com.bc.Utils.load.LoadData;
 import java.text.DecimalFormat;
@@ -13,14 +14,26 @@ import java.util.Date;
  * @date 2020/5/5 21:55
  */
 public class Time {
+    private static SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+    /**
+     * 获取拍卖剩余天数
+     * @param id 拍卖ID
+     * @return 天数
+     * @throws ParseException 日期转换错误
+     */
+    public static int getAuctionSurplusDay(String id) throws ParseException {
+        if(LoadAuction.autionData.get(id)==null){
+            return -1;
+        }
+        return (LoadCfg.auctionKeepDay)-daysBetween(LoadAuction.autionData.getString(id+".Date"),df.format(new Date()));
+    }
     /**
      * 获取剩余天数
      * @param id 物品ID
      * @return 剩余的天数
      * @throws ParseException 转换错误
      */
-    public static int getSurplusDay(String id) throws ParseException {
-        SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+    public static int getGoodsSurplusDay(String id) throws ParseException {
         if(LoadData.shopData.get(id)==null){
             return -1;
         }

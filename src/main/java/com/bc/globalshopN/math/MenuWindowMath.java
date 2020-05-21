@@ -25,6 +25,7 @@ public class MenuWindowMath {
         wd.addButton(new ElementButton(LoadCfg.menuBtSell, Image.getImageByCfg(LoadCfg.cfg.getString("Gui.Menu.Sell.Image"))));
         wd.addButton(new ElementButton(LoadCfg.menuBtMail, Image.getImageByCfg(LoadCfg.cfg.getString("Gui.Menu.Mail.Image"))));
         wd.addButton(new ElementButton(LoadCfg.menuBtSendMail,Image.getImageByCfg(LoadCfg.cfg.getString("Gui.Menu.SendMail.Image"))));
+        wd.addButton(new ElementButton(LoadCfg.menuBtAuction,Image.getImageByCfg(LoadCfg.cfg.getString("Gui.Menu.Auction.Image"))));
         return wd;
     }
 

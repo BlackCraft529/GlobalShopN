@@ -1,6 +1,5 @@
 package com.bc.globalshopN.clock;
 
-import cn.nukkit.Player;
 import cn.nukkit.item.Item;
 import com.bc.Utils.ItemNBT;
 import com.bc.Utils.Time;
@@ -35,7 +34,7 @@ public class WatchDog {
                     for(String key : LoadData.shopData.getKeys(false)){
                         if(LoadData.shopData.get(key)!=null){
                             try {
-                                if(Time.getSurplusDay(key)<0){
+                                if(Time.getGoodsSurplusDay(key)<0){
                                     Item item= ItemNBT.getItemByNbtString(LoadData.shopData.getString(key+".Item"));
                                     String receiver=LoadData.shopData.getString(key+".Player");
                                     LoadData.shopData.remove(key);

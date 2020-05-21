@@ -1,6 +1,6 @@
 Title: "&9[&e&l全球经济&9]"
 Error:
-  Sell: "&9您输入的售卖价格有误！"
+  Sell: "&9您输入的价格有误！"
   Charge: "&9您没有足够的钱/金币来缴纳税务!"
   Withdraw: "&9您输入的取出金额有误..."
   Deposit: "&9您输入的存入金额有误..."
@@ -13,6 +13,10 @@ Error:
   MailNotExists: "&b邮件不存在..."
   PlayerNotExists: "&4玩家不存在..."
   ItemNotEnough: "&4物品不足..."
+  Auction:
+    AddPrice: "§4加价过低！请重试！"
+    Price: "§4价格错误，请输入数字!"
+    Max: "§4你已经拍卖足够多的东西了！"
 Notice:
   Charge: "&a扣除手续费<charge>!"
   SellSucc: "&b上架成功!"
@@ -33,3 +37,8 @@ Notice:
     Back: "&4物品到期，已经强制下架，请查收!"
     Send: "&6发送成功！"
     Has: "&b您的邮箱中有<count>封未读邮件，请注意查收！"
+  Auction:
+    AddPrice: "§a加价成功，当前价格: <price>!"
+    Back: "§4拍卖品到期，已强制下架，请查收！"
+    Succ: "§6拍品ID<id>成功拍下！请进邮箱查收"
+    Bc: "§6玩家<player>上架了一个拍卖品，快去看看吧！"

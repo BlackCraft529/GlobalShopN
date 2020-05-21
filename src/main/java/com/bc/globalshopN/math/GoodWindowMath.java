@@ -50,7 +50,7 @@ public class GoodWindowMath {
                     .replaceAll("<item>",itemName)
                     .replaceAll("<count>",count+"")
                     .replaceAll("<lore>" , lore)
-                    .replaceAll("<time>", Time.getSurplusDay(goodId)+"")
+                    .replaceAll("<time>", Time.getGoodsSurplusDay(goodId)+"")
                     .replaceAll("&","§")+"\n";
         }
         FormWindowSimple wd=new FormWindowSimple(LoadCfg.buyTitle+" §8$"+goodId,info);
