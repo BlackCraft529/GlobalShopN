@@ -83,6 +83,9 @@ public class MailMath {
      * @param item 包含的物品
      * @param msg 信息
      * @param autoLook 是否自动弹出
+     * @param money 附带的金币
+     * @param point 附带的点券
+     * @param cmd 附带的指令
      * @return 是否成功发送
      */
     public static boolean sendGlobalMail(Player sender,Item item,String msg,boolean autoLook,double money,double point,String cmd){
