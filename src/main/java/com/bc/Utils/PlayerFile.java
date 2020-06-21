@@ -65,6 +65,19 @@ public class PlayerFile {
     }
 
     /**
+     * 获取用户银行剩余金币
+     * @param p 用户
+     * @return 余额
+     */
+    public static double getPlayerBankMoney(String p){
+        File pf=new File(gsn.getPlugin().getDataFolder()+File.separator+"Players",p+".yml");
+        if(!pf.exists()){
+            return -1;
+        }
+        Config pfi = new Config(pf, Config.YAML);
+        return pfi.getDouble("Bank.Money");
+    }
+    /**
      * 设置用户银行余额
      * @param p 用户
      * @param Money 金额
@@ -81,7 +94,7 @@ public class PlayerFile {
         return true;
     }
     /**
-     * 获取用户银行剩余金币
+     * 获取用户银行剩余点券
      * @param p 用户
      * @return 余额
      */
@@ -92,6 +105,20 @@ public class PlayerFile {
         }
         Config pfi = new Config(pf, Config.YAML);
         return pfi.getInt("Bank.Point");
+    }
+
+    /**
+     * 获取用户银行剩余点券
+     * @param p 用户
+     * @return 余额
+     */
+    public static double getPlayerBankPoint(String p){
+        File pf=new File(gsn.getPlugin().getDataFolder()+File.separator+"Players",p+".yml");
+        if(!pf.exists()){
+            return -1;
+        }
+        Config pfi = new Config(pf, Config.YAML);
+        return pfi.getDouble("Bank.Point");
     }
 
     /**

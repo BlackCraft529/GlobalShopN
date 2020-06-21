@@ -19,7 +19,7 @@ import com.bc.mailsN.math.MailWindowMath;
  */
 public class gsn extends PluginBase {
     private static gsn plugin;
-    public static String ver="0.2.31";
+    public static String ver="0.2.34";
     public static gsn getPlugin(){return plugin;}
 
     /**

@@ -34,10 +34,8 @@ public class BankListener implements Listener {
         Player p=e.getPlayer();
         if(((FormResponseSimple)e.getResponse()).getClickedButton().getText().equalsIgnoreCase(LoadCfg.bankBtDeposit)) {
             p.showFormWindow(BankWindowMath.getDepositWindow(p));
-            return;
         }else if(((FormResponseSimple)e.getResponse()).getClickedButton().getText().equalsIgnoreCase(LoadCfg.bankBtWithdraw)){
             p.showFormWindow(BankWindowMath.getWithdrawWindow(p));
-            return;
         }
     }
     /**
@@ -55,6 +53,10 @@ public class BankListener implements Listener {
         try{
             //存入金币
             double depositMoney=Double.parseDouble(window.getResponse().getInputResponse(1));
+            if(depositMoney<0){
+                p.sendMessage(LoadLang.title+LoadLang.errorDeposit);
+                return;
+            }
             if(EconomyAPI.getInstance().myMoney(p)<depositMoney){
                 p.sendMessage(LoadLang.title+LoadLang.errorNotEnough);
                 return;
@@ -68,6 +70,10 @@ public class BankListener implements Listener {
             }
             if(LoadCfg.usePoint){
                 double depositPoint=Double.parseDouble(window.getResponse().getInputResponse(3));
+                if(depositPoint<0){
+                    p.sendMessage(LoadLang.title+LoadLang.errorDeposit);
+                    return;
+                }
                 if(Point.myPoint(p)<depositPoint){
                     p.sendMessage(LoadLang.title+LoadLang.errorNotEnough);
                     return;
@@ -77,13 +83,11 @@ public class BankListener implements Listener {
                     p.sendMessage(LoadLang.title+LoadLang.depositPoint.replaceAll("<point>",depositPoint+""));
                 }else{
                     p.sendMessage(LoadLang.title+"§4插件内部错误:105");
-                    return;
                 }
             }
         }catch (Exception ex){
             p.sendMessage(LoadLang.title+LoadLang.errorDeposit);
             p.showFormWindow(BankWindowMath.getDepositWindow(p));
-            return;
         }
     }
     /**
@@ -101,6 +105,10 @@ public class BankListener implements Listener {
         try {
             //取出金币
             double withdrawMoney = Double.parseDouble(window.getResponse().getInputResponse(1));
+            if(withdrawMoney<0){
+                p.sendMessage(LoadLang.title+LoadLang.errorDeposit);
+                return;
+            }
             double bankMoney= PlayerFile.getPlayerBankMoney(p);
             if(withdrawMoney>bankMoney){
                 p.sendMessage(LoadLang.title+LoadLang.errorNotEnough);
@@ -116,6 +124,10 @@ public class BankListener implements Listener {
             //取出点券
             if(LoadCfg.usePoint){
                 double withdrawPoint=Double.parseDouble(window.getResponse().getInputResponse(3));
+                if(withdrawPoint<0){
+                    p.sendMessage(LoadLang.title+LoadLang.errorDeposit);
+                    return;
+                }
                 double bankPoint=PlayerFile.getPlayerBankPoint(p);
                 if(bankMoney<withdrawMoney){
                     p.sendMessage(LoadLang.title+LoadLang.errorNotEnough);
@@ -126,13 +138,11 @@ public class BankListener implements Listener {
                     p.sendMessage(LoadLang.title+LoadLang.withdrawPoint.replaceAll("<point>",withdrawPoint+""));
                 }else{
                     p.sendMessage(LoadLang.title+"§4插件内部错误:103");
-                    return;
                 }
             }
         }catch (Exception ex){
             p.sendMessage(LoadLang.title+LoadLang.errorWithdraw);
             p.showFormWindow(BankWindowMath.getWithdrawWindow(p));
-            return;
         }
     }
 }

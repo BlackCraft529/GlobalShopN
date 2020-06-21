@@ -113,6 +113,10 @@ public class AuctionListener implements Listener {
         }
         try {
             double addPrice = Double.parseDouble(window.getResponse().getInputResponse(0));
+            if(addPrice<=0){
+                p.sendMessage(LoadLang.title+LoadLang.errorAuctionAddPrice);
+                return;
+            }
             double nowPrice=LoadAuction.autionData.getDouble(key+".Auction.MaxPrice")+addPrice;
             if(LoadAuction.autionData.getBoolean(key+".IsPoint")){
                 if(Point.myPoint(p)<nowPrice){
@@ -181,6 +185,10 @@ public class AuctionListener implements Listener {
         try{
             double minPrice=Double.parseDouble(window.getResponse().getInputResponse(0));
             double addPrice=Double.parseDouble(window.getResponse().getInputResponse(1));
+            if(minPrice<=0||addPrice<=0){
+                p.sendMessage(LoadLang.title+LoadLang.errorAuctionPrice);
+                return;
+            }
             boolean isPoint=false;
             if(LoadCfg.usePoint){
                 isPoint=window.getResponse().getToggleResponse(2);

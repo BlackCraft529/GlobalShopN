@@ -1,6 +1,6 @@
 name: GlobalShopN
 main: com.bc.gsn
-version: "0.2.31"
+version: "0.2.34"
 author: bcN
 api: ["1.0.0"]
 description: "全球经济插件 GlobalShopN"
